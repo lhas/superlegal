@@ -16,19 +16,19 @@ module.exports = function(grunt) {
 		    src: [ 'dist' ]
 		  },
 		  stylesheets: {
-		    src: [ 'dist/**/*.css', '!dist/assets/css/app.css' ]
+		    src: [ 'dist/**/*.css', '!dist/assets/css/app.min.css' ]
 		  },
 		  scripts: {
-		    src: [ 'dist/**/*.js', '!dist/assets/js/app.js' ]
+		    src: [ 'dist/**/*.js', '!dist/assets/js/app.min.js' ]
 		  },
 		},
 		stylus: {
 		  build: {
 		    files: [{
 		      expand: true,
-		      cwd: 'src',
+		      cwd: 'src/assets/css',
 		      src: [ '**/*.styl' ],
-		      dest: 'dist',
+		      dest: 'dist/assets/css',
 		      ext: '.min.css'
 		    }]
 		  }
@@ -36,7 +36,7 @@ module.exports = function(grunt) {
 		uglify: {
 		  build: {
 		    files: {
-		      'dist/assets/js/app.js': [ 'src/**/*.js' ]
+		      'dist/assets/js/app.min.js': [ 'src/**/*.js' ]
 		    }
 		  }
 		},
@@ -81,6 +81,6 @@ module.exports = function(grunt) {
   	grunt.loadNpmTasks('grunt-contrib-jade');
   	grunt.loadNpmTasks('grunt-contrib-watch');
 
-	grunt.registerTask("default", ['clean', 'copy', 'stylus', 'uglify', 'jade', 'clean:stylesheets', 'clean:scripts', 'watch']);
-	grunt.registerTask("build", ['clean', 'copy', 'stylus', 'uglify', 'jade', 'clean:stylesheets', 'clean:scripts']);
+	grunt.registerTask("default", ['clean', 'copy', 'stylus', 'uglify', 'jade', 'clean:scripts', 'watch']);
+	grunt.registerTask("build", ['clean', 'copy', 'stylus', 'uglify', 'jade', 'clean:scripts']);
 }
