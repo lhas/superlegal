@@ -15,12 +15,6 @@ module.exports = function(grunt) {
 		  build: {
 		    src: [ 'dist' ]
 		  },
-		  stylesheets: {
-		    src: [ 'dist/**/*.css', '!dist/assets/css/app.min.css' ]
-		  },
-		  scripts: {
-		    src: [ 'dist/**/*.js', '!dist/assets/js/app.min.js' ]
-		  },
 		},
 		stylus: {
 		  build: {
@@ -36,7 +30,7 @@ module.exports = function(grunt) {
 		uglify: {
 		  build: {
 		    files: {
-		      'dist/assets/js/app.min.js': [ 'src/**/*.js' ]
+		      'dist/assets/js/app.min.js': [ 'src/assets/js/**/*.js' ]
 		    }
 		  }
 		},
@@ -62,11 +56,11 @@ module.exports = function(grunt) {
 		  },
 		  jade: {
 		    files: 'src/**/*.jade',
-		    tasks: [ 'newer:jade' ]
+		    tasks: [ 'jade' ]
 		  },
 		  copy: {
 		    files: [ 'src/**', '!src/**/*.styl', '!src/**/*.coffee', '!src/**/*.jade' ],
-		    tasks: [ 'copy', 'clean:stylesheets', 'clean:scripts' ]
+		    tasks: [ 'copy' ]
 		  },
 		  options: {
 		  	livereload: true,
@@ -129,6 +123,6 @@ module.exports = function(grunt) {
   	grunt.loadNpmTasks('grunt-contrib-connect');
   	grunt.loadNpmTasks('grunt-newer');
 
-	grunt.registerTask("default", ['clean', 'copy', 'stylus', 'uglify', 'jade', 'clean:scripts', 'imagemin', 'connect:server', 'watch']);
-	grunt.registerTask("build", ['clean', 'copy', 'stylus', 'uglify', 'jade', 'clean:scripts', 'imagemin']);
+	grunt.registerTask("default", ['clean', 'copy', 'stylus', 'uglify', 'jade', 'imagemin', 'connect:server', 'watch']);
+	grunt.registerTask("build", ['clean', 'copy', 'stylus', 'uglify', 'jade', 'imagemin']);
 }
