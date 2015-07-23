@@ -11,6 +11,10 @@ superLegalApp.config(['$routeProvider', '$locationProvider',
         templateUrl: 'sobre-nos.html',
         controller: 'SobreNosController'
       }).
+      when('/contato', {
+        templateUrl: 'contato.html',
+        controller: 'ContatoController'
+      }).
       otherwise({
         redirectTo: '/home'
       });

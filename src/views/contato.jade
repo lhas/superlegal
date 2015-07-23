@@ -1,0 +1,23 @@
+.panel.panel-default
+	.panel-heading= "Contato"
+	.panel-body
+
+
+		.alert.alert-success(ng-show="formularioEnviado")
+			= "Seu contato foi enviado com sucesso!"
+
+		form(ng-submit="enviarContato()" ng-hide="formularioEnviado")
+
+			.form-group
+				label(for='') Nome
+				input.form-control(type='text', ng-model="contato.nome", placeholder='Nome')
+
+			.form-group
+				label(for='') E-mail
+				input.form-control(type='text', ng-model="contato.email", placeholder='E-mail')
+
+			.form-group
+				label(for='') Mensagem
+				textarea.form-control(placeholder='Mensagem', ng-model="contato.mensagem")
+
+			button.btn.btn-primary(type='submit') Enviar
