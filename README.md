@@ -1,6 +1,6 @@
 # Super legal - powered by @lhas e @BBlender
 
-<img src="https://raw.githubusercontent.com/lhas/superlegal/master/src/assets/img/superlegal_logo.svg" />
+<img src="https://github.com/lhas/superlegal/blob/master/src/assets/img/superlegal_logo.svg" />
 
 Este é um pacote de início para começarmos nossos projetos.
 
