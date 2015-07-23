@@ -2,6 +2,7 @@
   "name": "actelion_web",
   "dependencies": {
     "bower": "^1.4.1",
+    "connect-modrewrite": "^0.8.1",
     "grunt": "^0.4.5",
     "grunt-contrib-clean": "^0.6.0",
     "grunt-contrib-copy": "^0.8.0",

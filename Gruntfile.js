@@ -15,6 +15,9 @@ module.exports = function(grunt) {
 		  build: {
 		    src: [ 'dist' ]
 		  },
+		  javascripts: {
+		    src: [ 'dist/**/*.js', '!dist/**/*.min.js' ]
+		  },
 		},
 		stylus: {
 		  build: {
@@ -60,7 +63,7 @@ module.exports = function(grunt) {
 		  },
 		  copy: {
 		    files: [ 'src/**', '!src/**/*.styl', '!src/**/*.coffee', '!src/**/*.jade' ],
-		    tasks: [ 'copy' ]
+		    tasks: [ 'clean', 'copy' ]
 		  },
 		  options: {
 		  	livereload: true,
@@ -107,7 +110,15 @@ module.exports = function(grunt) {
 	      options: {
 	      	livereload: true,
 	        port: 9001,
-	        base: 'dist/'
+	        base: 'dist/',
+	        middleware: function(connect, options, middlewares) {
+	            var modRewrite = require('connect-modrewrite');
+
+	            // enable Angular's HTML5 mode
+	            middlewares.unshift(modRewrite(['!\\.html|\\.js|\\.svg|\\.css|\\.png$ /index.html [L]']));
+
+	            return middlewares;
+          	}
 	      }
 	    }
 	  }
@@ -123,6 +134,6 @@ module.exports = function(grunt) {
   	grunt.loadNpmTasks('grunt-contrib-connect');
   	grunt.loadNpmTasks('grunt-newer');
 
-	grunt.registerTask("default", ['clean', 'copy', 'stylus', 'uglify', 'jade', 'imagemin', 'connect:server', 'watch']);
-	grunt.registerTask("build", ['clean', 'copy', 'stylus', 'uglify', 'jade', 'imagemin']);
+	grunt.registerTask("default", ['clean', 'copy', 'stylus', 'uglify', 'clean:javascripts', 'jade', 'imagemin', 'connect:server', 'watch']);
+	grunt.registerTask("build", ['clean', 'copy', 'stylus', 'uglify', 'clean:javascripts', 'jade', 'imagemin']);
 }

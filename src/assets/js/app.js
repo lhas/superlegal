@@ -1,7 +1,7 @@
-var superLegalApp = angular.module('superLegalApp', ['ngRoute']);
+var superLegalApp = angular.module('superLegalApp', ['ngRoute', 'superLegalControllers']);
   
-superLegalApp.config(['$routeProvider',
-  function($routeProvider) {
+superLegalApp.config(['$routeProvider', '$locationProvider',
+  function($routeProvider, $locationProvider) {
     $routeProvider.
       when('/home', {
         templateUrl: 'home.html',
@@ -14,21 +14,7 @@ superLegalApp.config(['$routeProvider',
       otherwise({
         redirectTo: '/home'
       });
+
+      // use the HTML5 History API
+      $locationProvider.html5Mode(true);
   }]);
-
-superLegalApp.controller('HeaderController', ['$scope', '$location', function($scope, $location) {
-  $scope.isActive = function (viewLocation) { 
-    return viewLocation === $location.path();
-  };
-}]);
-
-superLegalApp.controller('HomeController', ['$scope', function($scope) {
-     
-    $scope.message = 'This is Add new order screen';
-}]);
- 
- 
-superLegalApp.controller('SobreNosController', ['$scope', function($scope) {
- 
-    $scope.message = 'This is Show orders screen';
-}]);
