@@ -14,17 +14,14 @@ As atuais features dele são:
 * Minificação de Imagens (JPG e PNG)
 * Web Server (Utiliza o grunt-contrib-connect para gerar um servidor web para acessar a página)
 
-## Instalação
+## 1) Instalação
 * 1) Clone o repositório
 * 2) Acesse a pasta clonada via Terminal
 * 3) Rode `npm install`
 * 4) Após instalar todas as dependências, rode `grunt`
 * 5) Se você quiser apenas compilar os arquivos para subir o site, basta rodar `grunt build`
 
-## Onde colocar dependências externas (ou onde o Bower instala seus componentes)
-`/src/assets/lib`
-
-## Como criar páginas novas
+## 2) Como criar páginas novas
 * 1) Editar o src/assets/js/app.js
 * 2) Duplicar este pedaço de código
 ```
@@ -36,7 +33,12 @@ controller: 'SobreNosController'
 * 4) Fazer as adaptações necessárias
 * 5) Criar o arquivo de view em src/views/view.jade
 * 6) Criar o controller da página em src/assets/js/controllers.js
+* 7) Pronto, rota, controller e view de uma página nova configurado! Enjoy :-D
 
-Pronto, rota, controller e view de uma página nova configurado! Enjoy :-D
+## 3) Duvidas
+* 1) Onde colocar dependências externas (ou onde o Bower instala seus componentes)
+`/src/assets/lib`
+* 2) Como acessar o site depois de rodar grunt
+`http://localhost:9001/`
 
 Se quiser desabilitar as rotas do angular, basta remover este trecho de configuração do routerProvider e ser feliz!
