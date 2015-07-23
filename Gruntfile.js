@@ -111,8 +111,9 @@ module.exports = function(grunt) {
 	  connect: {
 	    server: {
 	      options: {
-	        port: 3000,
-	        base: 'dist'
+	      	livereload: true,
+	        port: 9001,
+	        base: 'dist/'
 	      }
 	    }
 	  }
@@ -125,9 +126,9 @@ module.exports = function(grunt) {
   	grunt.loadNpmTasks('grunt-contrib-jade');
   	grunt.loadNpmTasks('grunt-contrib-watch');
   	grunt.loadNpmTasks('grunt-contrib-imagemin');
-  	grunt.loadNpmTasks('grunt-newer');
   	grunt.loadNpmTasks('grunt-contrib-connect');
+  	grunt.loadNpmTasks('grunt-newer');
 
-	grunt.registerTask("default", ['clean', 'copy', 'stylus', 'uglify', 'jade', 'clean:scripts', 'imagemin', 'watch']);
+	grunt.registerTask("default", ['clean', 'copy', 'stylus', 'uglify', 'jade', 'clean:scripts', 'imagemin', 'connect:server', 'watch']);
 	grunt.registerTask("build", ['clean', 'copy', 'stylus', 'uglify', 'jade', 'clean:scripts', 'imagemin']);
 }
