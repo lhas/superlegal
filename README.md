@@ -1,5 +1,7 @@
 # Super legal - powered by @lhas e @BBlender
 
+<img src="https://raw.githubusercontent.com/lhas/superlegal/master/src/assets/img/superlegal_logo.svg" />
+
 Este é um pacote de início para começarmos nossos projetos.
 
 Resolvi desenvolvê-lo open-source para poder utilizar nos meus projetos pessoais e para que outras pessoas possam contribuir.
@@ -35,7 +37,7 @@ controller: 'SobreNosController'
 * 6) Criar o controller da página em src/assets/js/controllers.js
 * 7) Pronto, rota, controller e view de uma página nova configurado! Enjoy :-D
 
-## 3) Duvidas
+## 3) Dúvidas
 * 1) Onde colocar dependências externas (ou onde o Bower instala seus componentes)
 `/src/assets/lib`
 * 2) Como acessar o site depois de rodar grunt
