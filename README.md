@@ -1,5 +1,4 @@
-# Super legal
-## powered by BBlender
+# Super legal - powered by @lhas e @BBlender
 
 Este é um pacote de início para começarmos nossos projetos.
 
@@ -16,9 +15,9 @@ As atuais features dele são:
 * Web Server (Utiliza o grunt-contrib-connect para gerar um servidor web para acessar a página)
 
 ## Instalação
-1) Clone o repositório;
-2) Acesse a pasta clonada via Terminal;
-3) Rode `npm install`;
+1) Clone o repositório
+2) Acesse a pasta clonada via Terminal
+3) Rode `npm install`
 4) Após instalar todas as dependências, rode `grunt`
 5) Se você quiser apenas compilar os arquivos para subir o site, basta rodar `grunt build`
 
